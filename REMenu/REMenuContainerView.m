@@ -35,6 +35,11 @@
     
     CGFloat landscapeOffset = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 32.0 : 44.0;
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        landscapeOffset = 12;
+    }
+
     if (self.navigationBar && !self.appearsBehindNavigationBar) {
         CGRect frame = self.frame;
         frame.origin.y = self.navigationBar.frame.origin.y + (UIDeviceOrientationIsPortrait(orientation) ? 44.0 : landscapeOffset);
